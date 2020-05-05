@@ -47,6 +47,7 @@
         <?php
         if (isset($posts)) {
           foreach ($posts as $onePost) {
+
         ?>
             <div class="panel panel-white post panel-shadow">
               <div class="post-heading">
@@ -73,8 +74,9 @@
                 <ul class="comments-list">
                   <?php
                   $postId = $onePost['id'];
-                  if (isset($comments[$postId])) {
-                    foreach ($comments[$postId] as $comment) {
+                  $comments =  GetAllCommentsFromPostId($postId);
+                  if (isset($comments)) {
+                    foreach ($comments as $comment) {
                   ?>
                       <li class="comment">
                         <a class="pull-left" href="#">
